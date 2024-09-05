@@ -1,2 +1,2 @@
 # first-Simple-linear-regresion
-# first-Simple-linear-regresion
+This project represents my initial foray into integrating machine learning with a web interface. It involves a simple linear regression model built using Python for the backend, with a user-friendly web GUI designed using HTML, CSS, and JavaScript. The backend and frontend communicate seamlessly through a Flask API, providing a cohesive and interactive user experience.

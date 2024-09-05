@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Predict Your Marks Based on Hours Studied</h2>
+        <input type="number" id="hours" placeholder="Enter hours studied">
+        <button onclick="predictMarks()">Predict Marks</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function predictMarks() {
+            // Get the value from the input field
+            const hours = document.getElementById("hours").value;
+
+            // Make a GET request to the backend Flask API
+            fetch(`http://127.0.0.1:5000/marks?hrs=${hours}`)
+                .then(response => response.text())
+                .then(data => {
+                    // Display the result in the frontend
+                    document.getElementById("result").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+</html>
